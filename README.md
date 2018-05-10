@@ -1,3 +1,5 @@
+My notes on HTML, CSS, Sass and other things that help with the presentational stuff of the web.
+
 [TOC]
 
 # HTML
