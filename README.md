@@ -1,6 +1,125 @@
 My notes on HTML, CSS, Sass and other things that help with the presentational stuff of the web.
 
-[TOC]
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- code_chunk_output -->
+
+* [HTML](#html)
+	* [HTML semantics](#html-semantics)
+		* [Images](#images)
+		* [Containers](#containers)
+		* [Forms](#forms)
+		* [Tables](#tables)
+			* [scope](#scope)
+			* [colspan](#colspan)
+		* [Other useful elements](#other-useful-elements)
+* [CSS](#css)
+	* [Cascade/Inheritance](#cascadeinheritance)
+		* [CSS Selectors](#css-selectors)
+		* [HTML/CSS files: Setup](#htmlcss-files-setup)
+		* [Color](#color)
+		* [Sizing](#sizing)
+			* [Units](#units)
+			* [Width](#width)
+			* [Height](#height)
+	* [Box Model](#box-model)
+		* [display values and the box model](#display-values-and-the-box-model)
+			* [inline](#inline)
+			* [inline-block](#inline-block)
+			* [Block](#block)
+		* [box-sizing](#box-sizing)
+			* [Adding spacing between floated or inline elements](#adding-spacing-between-floated-or-inline-elements)
+		* [Spacing - margin and padding:](#spacing-margin-and-padding)
+			* [Tip: Avoiding margin collapse](#tip-avoiding-margin-collapse)
+		* [Floats](#floats)
+			* [Clearing floats](#clearing-floats)
+			* [Float based layouts](#float-based-layouts)
+				* [Float three or more elements](#float-three-or-more-elements)
+				* [Two column layout, somewhat fixed right width](#two-column-layout-somewhat-fixed-right-width)
+				* [Two column layout, fixed left margin](#two-column-layout-fixed-left-margin)
+				* [Two columns, fixed + flexible columns (reversible)](#two-columns-fixed-flexible-columns-reversible)
+			* [Non-layout:](#non-layout)
+		* [Inline-block based layout](#inline-block-based-layout)
+			* [Notes on inline & inline-block use](#notes-on-inline-inline-block-use)
+	* [Positioning](#positioning)
+		* [`position: absolute`](#position-absolute)
+		* [`position: relative`](#position-relative)
+		* [`position: fixed`](#position-fixed)
+			* [Centering absolute elements](#centering-absolute-elements)
+			* [Creating a dropshadow on a modal popup](#creating-a-dropshadow-on-a-modal-popup)
+			* [Hiding an element with a checkbox](#hiding-an-element-with-a-checkbox)
+	* [Centering things](#centering-things)
+		* [Horizontally](#horizontally)
+			* [`text-align: center` vs. `margin: 0 auto`:](#text-align-center-vs-margin-0-auto)
+			* [inline/inline-block element](#inlineinline-block-element)
+			* [Resizing an `img` in a container](#resizing-an-img-in-a-container)
+			* [Centering an image (against a border color)](#centering-an-image-against-a-border-color)
+			* [Multiple images in a container w/ padding](#multiple-images-in-a-container-w-padding)
+			* [background images](#background-images)
+			* [block text](#block-text)
+			* [Centering nav text](#centering-nav-text)
+			* [Centering a positioned element](#centering-a-positioned-element)
+		* [Vertically](#vertically)
+			* [block elements](#block-elements)
+			* [inline elements](#inline-elements)
+				* [Centering icon/image + text](#centering-iconimage-text)
+				* [background-images](#background-images-1)
+	* [Borders](#borders)
+		* [Aspect ratio](#aspect-ratio)
+		* [`border-radius`](#border-radius)
+	* [Responsiveness tips](#responsiveness-tips)
+	* [Layout types](#layout-types)
+		* [Responsive](#responsive)
+		* [Fluid](#fluid)
+		* [Liquid](#liquid)
+	* [Styling tables](#styling-tables)
+		* [Border spacing](#border-spacing)
+		* [Styling borders (rows)](#styling-borders-rows)
+		* [Spacing with table cells](#spacing-with-table-cells)
+		* [Overriding table cell spacing](#overriding-table-cell-spacing)
+			* [Centering images in a td](#centering-images-in-a-td)
+	* [Styling forms](#styling-forms)
+		* [Vertical layout](#vertical-layout)
+		* [Horizontal](#horizontal)
+			* [1) Percentage width labels/input fields:](#1-percentage-width-labelsinput-fields)
+			* [2) Fixed width labels](#2-fixed-width-labels)
+			* [3) Use `dl`](#3-use-dl)
+			* [multiple inline inputs](#multiple-inline-inputs)
+		* [Styling input[type="submit"]](#styling-inputtypesubmit)
+		* [Styling a default `select`](#styling-a-default-select)
+		* [Displaying radio buttons vertically](#displaying-radio-buttons-vertically)
+	* [Images](#images-1)
+		* [img](#img)
+		* [background-images](#background-images-2)
+			* [background-position](#background-position)
+			* [Padding problems!: Use margins instead](#padding-problems-use-margins-instead)
+			* [Resizing a background-image](#resizing-a-background-image)
+			* [Other things to remember:](#other-things-to-remember)
+	* [Spritesheets](#spritesheets)
+		* [Spritesheet images as icon](#spritesheet-images-as-icon)
+	* [Default styles & resets](#default-styles-resets)
+	* [Useful shorthands](#useful-shorthands)
+		* [`font`](#font)
+		* [Spacing](#spacing)
+		* [Borders](#borders-1)
+		* [`background`](#background)
+		* [Designs](#designs)
+			* [Drawing with transform - creating an x](#drawing-with-transform-creating-an-x)
+	* [Frameworks](#frameworks)
+	* [Planning](#planning)
+	* [Debugging](#debugging)
+	* [Sass](#sass)
+		* [`@mixins`](#mixins)
+		* [`@extends`](#extends)
+		* [placeholders](#placeholders)
+		* [`&`](#)
+		* [Nesting](#nesting)
+	* [Photoshop](#photoshop)
+		* [Cutting out assets](#cutting-out-assets)
+		* [Grab group of images](#grab-group-of-images)
+
+<!-- /code_chunk_output -->
+
 
 # HTML
 
@@ -929,7 +1048,7 @@ h1 { font-size: 50px; }
 
 If you try and apply `margin: 0 auto` you will neither succeed in centering the `h1` nor the the inline text?
 
-Why? A block container with a nonspecified with (or `width: `100%`)
+Why? A block container with a nonspecified with (or `width: 100%`)
 
 `text-align: center` will work to center the text because the inline elements (the text) will move to the center of the width
 
@@ -1515,7 +1634,7 @@ label {
   padding-bottom: 10px;
 }
 
-input[type="text] {
+input[type="text"] {
   width: 100%
   height: 40px;
   padding: 0 10px;
@@ -1543,7 +1662,7 @@ label {
   padding-right: 20%;
 }
 
-input[type="text] {
+input[type="text"] {
   width: 90%;
   ...
 }
@@ -1579,7 +1698,7 @@ dd {
   margin: 0; <!--Removes default inset for dls -->
 }
 
-input[type="text] {
+input[type="text"] {
   width: 100%;
   ...
 }
@@ -2158,7 +2277,7 @@ body, p {
 
 Nesting is a powerful tool in Sass. One thing that's cool is using it to namespace stuff. For example, you're building a widget an it needs be protected from outside styles, etc.
 
-```
+```sass
 #some-container {
   @import "widget-styles";
 }
