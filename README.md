@@ -1275,9 +1275,11 @@ When thinking about the default spacing an element should take, it may be helpfu
 
 `padding: 8px 15px`
 
-### Border-radius
+### `border-radius`
 
-* Avoiding flat edges: If you want buttons to not have flat edges (when the font changes), make sure the `border-radius` is larger than the font height.
+Avoiding flat edges: If you want buttons to not have flat edges (when the font changes), make sure the `border-radius` is larger than the font height.
+
+Pixels values vs. percentage: Percentage widths can be great in certain instances, especially when making something like a circle, but can sometimes lead to unexpected shapes, especially for longer objects. Look at the MDN example for a `border-radius` of 50% [here](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius#Examples). A border radius equal to the font height (see above) would have more traditionally standard looking borders.
 
 **Buttons**
 
@@ -1308,17 +1310,19 @@ When thinking about the default spacing an element should take, it may be helpfu
 
 Simple media query:
 
+```
 @media { max-width: pixel limit for breakpoint } {  
   css  
-}  
+}
 
-```
 @media { max-width: 768px } {
   color: red;
 }
 ```
 
-min-width works as well
+**Media query mental model**
+
+`min-width` works as well, but it's from a different perspective. `max-width` can be thought of as white-listing what you want to happen at smaller screen widths. In other words, "The stylesheet for screen sizes below value set for max-width (`max-width: value`) should have these different CSS properties/values (whatever's between `{ ... }`): ..."
 
 ### Fluid
 
