@@ -16,6 +16,11 @@ My notes on HTML, CSS, Sass and other things that help with the presentational s
 * [CSS](#css)
 	* [Cascade/Inheritance](#cascadeinheritance)
 		* [CSS Selectors](#css-selectors)
+			* [Multiple class/id/type selectors](#multiple-classidtype-selectors)
+			* [Child combinator selector](#child-combinator-selector)
+			* [Adjacent selector](#adjacent-selector)
+			* [nth-of-type](#nth-of-type)
+			* [Other selectors](#other-selectors)
 		* [HTML/CSS files: Setup](#htmlcss-files-setup)
 		* [Color](#color)
 		* [Sizing](#sizing)
@@ -356,14 +361,22 @@ The `background` property specifies most background properties, so it resets the
 
 2) Markup nesting order: Given two elements each with selectors, the nested one has a higher level of specificity
 
-Give this HTML snippet: `<p>Hello</p>` and this CSS:
+Give this HTML snippet:
 
-```css
-body { color: green; }
-p { color: blue; }
+```html
+<body>
+	<p>Hello</p>
+</body>
 ```
 
-The `body` element does **not** override the `p` selector.
+and this CSS:
+
+```css
+p { color: blue; }
+body { color: green; }
+```
+
+The text will be blue. The `p` element has a higher level of specificity because the `p` markup is nested.
 
 **Selector weights**
 
@@ -380,7 +393,21 @@ Simplest way to control specificity is to use base and specialized classes.
 
 ### CSS Selectors
 
-**Combined Selectors**
+#### Multiple class/id/type selectors
+
+```css
+#header .callout { }
+```
+> Select all elements with the class name callout that are decendants of the element with an ID of header.
+
+```css
+#header.callout {  }
+```
+> Select the element which has an ID of header and also a class name of callout.
+
+https://css-tricks.com/multiple-class-id-selectors/
+
+**Using multi selectors**
 
 Key selector - The selector farthest to the right, directly before the opening curly bracket.
 
@@ -404,7 +431,8 @@ Prequalifiers - Any selector to the left of the key selector
 
 The CSS above should be changed to `.hotdog .mustard`.
 
-**Child combinator selector**    
+#### Child combinator selector
+
 `ul > li`
 
 ![childcombinator](assets/child-combinator-selector-example.png)
@@ -412,14 +440,16 @@ The CSS above should be changed to `.hotdog .mustard`.
 * Only select list items that are direct children of an `ul` (it only looks one level down)
 * It can be thought of as a way to prevent styling from cascading down further than you would like it to.
 
- **Adjacent selector**  
+#### Adjacent selector
+
  `div` + `p`
 
  ![adjacent](assets/adjacent-selector-example.png)
 
 * Select an element that is directly after another specific element (on the same level i.e not nested)
 
- **General sibling combinator**
+ ##### General sibling combinator
+
  `div` ~ `p`
 
  * Select element after another specific element (on the same level).
@@ -428,7 +458,7 @@ The CSS above should be changed to `.hotdog .mustard`.
 
 [Link](https://css-tricks.com/child-and-sibling-selectors/)
 
-**nth-of-type**
+#### nth-of-type
 
 Simple nth-of-type
 
@@ -455,7 +485,7 @@ Simple nth-of-type
 <li></li>
 ```
 
-**Other selectors**
+#### Other selectors
 
 `td:last-child` will select the third `td` element.
 
@@ -466,7 +496,6 @@ Simple nth-of-type
   <td>Ham</td>
 <tr>
 ```
-
 
 ### HTML/CSS files: Setup
 
