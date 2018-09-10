@@ -111,6 +111,8 @@ My notes on HTML, CSS, Sass and other things that help with the presentational s
 		* [Designs](#designs)
 			* [Drawing with transform - creating an x](#drawing-with-transform-creating-an-x)
 	* [Frameworks](#frameworks)
+	* [Flexbox](#flexbox)
+		* [Vertically center text](#vertically-center-text)
 	* [Planning](#planning)
 	* [Debugging](#debugging)
 	* [Sass](#sass)
@@ -2147,6 +2149,18 @@ And then the markup would now look like this:
 ```
 
 ![](assets/grid-fourth-margin.png)
+
+## Flexbox
+
+### Vertically center text
+
+This is for a flexbox, not a flex item. I'd like to be able to do this with a flex item though (element with text that's nested in a flexbox container)
+
+https://stackoverflow.com/a/33049392
+
+display: flex;
+justify-content: center;
+align-items: center;
 
 ## Planning
 
