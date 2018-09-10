@@ -592,12 +592,14 @@ Inline:
 
 ### box-sizing
 
-`box-sizing` property has `content-box` (default) and `padding-box`, but `border-box` simplifies sizing by not allowing margin or borders to increase an element's size.
+`box-sizing` property has `content-box` (default) and `padding-box`, but `border-box` simplifies sizing by not allowing padding or borders to increase an element's size.
 
 `border-box`
 
 * Padding: A `400px` element with `border-box` remains `400px` regardless of how the size of borders or padding.  
 * Margins: margins do need to be calculated.
+
+There's a great interactive demo for this at MDN's entry for [box-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)
 
 #### Adding spacing between floated or inline elements
 
